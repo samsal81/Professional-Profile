@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Osamah Al-Saleh - Lead QA Automation Engineer with 10+ years of experience in test automation, Selenium, C#, Java, and CI/CD.">
+    <meta name="author" content="Osamah Al-Saleh">
+    <meta property="og:title" content="Osamah Al-Saleh - Lead QA Automation Engineer">
+    <meta property="og:description"
+        content="Veteran Automation Engineer with expertise in C#, Selenium, Azure DevOps, and test automation frameworks.">
+    <meta property="og:type" content="profile">
+    <title>Osamah Al-Saleh - Lead QA Automation Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Tech Background Effects -->
+    <canvas id="matrix-canvas"></canvas>
+    <div class="tech-grid"></div>
+    <div class="hex-grid"></div>
+    <div class="scanlines"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">OA</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="container hero-content">
+            <div class="hero-image-wrapper">
+                <img src="profile_avatar.png" alt="Osamah Al-Saleh" class="hero-image">
+                <div class="hero-image-glow"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-greeting" data-scramble>Hello, I'm</span>
+                <span class="hero-name glitch" data-text="Osamah Al-Saleh">Osamah Al-Saleh</span>
+            </h1>
+            <p class="hero-subtitle typing-cursor">Lead QA Automation Engineer</p>
+            <p class="hero-description">
+                <span class="tech-badge">Selenium</span>
+                <span class="tech-badge">C#</span>
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">Azure DevOps</span>
+                <span class="tech-badge">CI/CD</span>
+                <span class="tech-badge">Test Automation</span>
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#experience" class="btn btn-secondary">View Experience</a>
+            </div>
+            <div class="hero-social">
+                <a href="https://linkedin.com/in/osama-alsaleh" target="_blank" rel="noopener noreferrer"
+                    class="social-link" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://github.com/samsal81" target="_blank" rel="noopener noreferrer" class="social-link"
+                    aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                </a>
+                <a href="mailto:alsaleh.osama.k@gmail.com" class="social-link" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+                <a href="https://sites.google.com/view/osamaalsalehprofile/home" target="_blank"
+                    rel="noopener noreferrer" class="social-link" aria-label="Website">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title" data-scramble>About Me</h2>
+            <div class="about-layout">
+                <div class="about-main">
+                    <div class="about-card glass-card hacker-hover">
+                        <div class="about-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3>Professional Summary</h3>
+                        <p>
+                            Veteran Automation Engineer with <strong>10+ years of experience</strong> in designing and
+                            building robust automation frameworks.
+                            Expertise in <strong>C# (MSTest)</strong> and <strong>Java (Maven)</strong>, integrating
+                            Selenium WebDriver, and implementing
+                            Page Object Model (POM).
+                        </p>
+                        <p>
+                            Experienced in BDD (Cucumber/Gherkin), CI/CD (Jenkins/Azure Pipelines), API testing
+                            (SOAPUI/RESTful),
+                            and database validation (SQL/JDBC). Strong background in Agile methodologies, leadership,
+                            and mentoring QA teams.
+                        </p>
+                    </div>
+
+                    <!-- Terminal Window -->
+                    <div class="terminal-window hacker-hover">
+                        <div class="terminal-header">
+                            <div class="terminal-button red"></div>
+                            <div class="terminal-button yellow"></div>
+                            <div class="terminal-button green"></div>
+                            <span class="terminal-title">profile.sh — 80x24</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">cat /proc/profile</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                <span class="terminal-keyword">Name:</span> Osamah Al-Saleh<br>
+                                <span class="terminal-keyword">Role:</span> Lead QA Automation Engineer<br>
+                                <span class="terminal-keyword">Experience:</span> 10+ years<br>
+                                <span class="terminal-keyword">Location:</span> Fort Myers, Florida, USA<br>
+                                <span class="terminal-keyword">Status:</span> <span style="color: #50fa7b;">● Available for opportunities</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">ls -la skills/</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                drwxr-xr-x Selenium WebDriver<br>
+                                drwxr-xr-x C# / .NET / MSTest<br>
+                                drwxr-xr-x Java / Maven / TestNG<br>
+                                drwxr-xr-x Azure DevOps / CI/CD<br>
+                                drwxr-xr-x API Testing / REST / SOAP
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command typing-cursor">_</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card glass-card hacker-hover">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card glass-card hacker-hover">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Companies</div>
+                        </div>
+                        <div class="stat-card glass-card hacker-hover">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Sidebar -->
+                <aside class="skills-sidebar glass-card hacker-hover">
+                    <h3 class="sidebar-title">Core Skills</h3>
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C# / .NET</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Selenium WebDriver</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Azure DevOps</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CI/CD Pipelines</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Test Automation</span>
+                                <span class="skill-percentage">98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="98"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">API Testing</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">30%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="30"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL / Database</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Agile / Scrum</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2 class="section-title" data-scramble>Professional Experience</h2>
+            <div class="timeline">
+                <!-- Experience 1: Adtran -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card hacker-hover">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Lead QA Automation Engineer</h3>
+                                <h4 class="timeline-company">Datalink Software</h4>
+                            </div>
+                            <div class="timeline-date">Jan 2022 - Jan 2024</div>
+                        </div>
+                        <p class="timeline-location">Tampa, Florida</p>
+                        <ul class="timeline-description">
+                            <li>Designing robust automation frameworks using C# and Selenium</li>
+                            <li>Integrating with Azure DevOps CI/CD pipelines</li>
+                            <li>Generating actionable insights through Allure Report</li>
+                            <li>Collaborating with development and QA teams</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 2: Datalink Software - Senior QA -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card hacker-hover">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Senior QA Automation Engineer</h3>
+                                <h4 class="timeline-company">Datalink Software</h4>
+                            </div>
+                            <div class="timeline-date">Jun 2021 - Jan 2022</div>
+                        </div>
+                        <p class="timeline-location">Tampa, Florida</p>
+                        <ul class="timeline-description">
+                            <li>Designing and implementing test plans, test cases, and test scripts</li>
+                            <li>Executing manual and automated tests in scheduled Azure pipelines</li>
+                            <li>Developing and maintaining test automation framework (C#/.Net, Selenium, MsTest)</li>
+                            <li>Providing technical guidance to junior team members</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 3: Citizens Bank -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card hacker-hover">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Senior QA Automation Engineer</h3>
+                                <h4 class="timeline-company">Citizens Bank</h4>
+                            </div>
+                            <div class="timeline-date">Jan 2020 - Jun 2021</div>
+                        </div>
+                        <p class="timeline-location">Fort Lauderdale, Florida</p>
+                        <ul class="timeline-description">
+                            <li>Developing and maintaining automation framework and scripts</li>
+                            <li>Creating automation test suite for cross-browser/device/OS testing</li>
+                            <li>Implementing automated regression test suite with daily runs</li>
+                            <li>Collaborating with development teams on quality initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 4: Harley Davidson -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card hacker-hover">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">QA Automation Engineer</h3>
+                                <h4 class="timeline-company">Harley Davidson</h4>
+                            </div>
+                            <div class="timeline-date">Jan 2017 - Dec 2019</div>
+                        </div>
+                        <p class="timeline-location">Plano, Texas</p>
+                        <ul class="timeline-description">
+                            <li>Analyzing and reviewing requirements, specifications, and technical design documents
+                            </li>
+                            <li>Designing and developing custom Selenium automation frameworks with Java and TestNG</li>
+                            <li>Documenting test automation requirements and planning artifacts</li>
+                            <li>Developing end-to-end system automation flows</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 5: Credit Union of Dallas -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card hacker-hover">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">QA Automation Engineer</h3>
+                                <h4 class="timeline-company">Credit Union of Dallas</h4>
+                            </div>
+                            <div class="timeline-date">Jan 2015 - Dec 2016</div>
+                        </div>
+                        <p class="timeline-location">Dallas, Texas</p>
+                        <ul class="timeline-description">
+                            <li>Developing test plans and test cases by analyzing user stories</li>
+                            <li>Implementing automation strategies, test plans, standards, and processes</li>
+                            <li>Collaborating with developers on automated Selenium testing scripts</li>
+                            <li>Database testing including writing SQL queries</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 6: Blue Cross Blue Shield -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content glass-card hacker-hover">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Junior QA Engineer</h3>
+                                <h4 class="timeline-company">Blue Cross Blue Shield</h4>
+                            </div>
+                            <div class="timeline-date">Jan 2013 - Dec 2014</div>
+                        </div>
+                        <p class="timeline-location">Philadelphia, Pennsylvania</p>
+                        <ul class="timeline-description">
+                            <li>Delivering projects on time with excellent quality and within budget</li>
+                            <li>Automating test scripts and reporting bugs or defects</li>
+                            <li>Participating in the development of test plans and test cases</li>
+                            <li>Assisting developers and technical support staff in resolving defects</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education">
+        <div class="container">
+            <h2 class="section-title" data-scramble>Education</h2>
+            <div class="education-content">
+                <div class="education-grid">
+                    <div class="education-card glass-card hacker-hover">
+                        <div class="education-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="education-degree">A.S. in Computer Science</h3>
+                        <h4 class="education-school">Lincoln Land Community College</h4>
+                        <p class="education-date">December 2012</p>
+                        <p class="education-location">Springfield, Illinois</p>
+                    </div>
+                    <div class="education-card glass-card hacker-hover">
+                        <div class="education-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="education-degree">B.A. in Finance</h3>
+                        <h4 class="education-school">University of Jordan</h4>
+                        <p class="education-date">February 2008</p>
+                        <p class="education-location">Amman, Jordan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills circuit-pattern">
+        <div class="container">
+            <h2 class="section-title" data-scramble>Skills & Certifications</h2>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Programming Languages</h3>
+                    <div class="skills-grid">
+                        <span class="skill-badge">C# .NET</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">PL/SQL</span>
+                        <span class="skill-badge">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Testing Tools & Frameworks</h3>
+                    <div class="skills-grid">
+                        <span class="skill-badge">Selenium WebDriver</span>
+                        <span class="skill-badge">Playwright</span>
+                        <span class="skill-badge">MSTest</span>
+                        <span class="skill-badge">NUnit</span>
+                        <span class="skill-badge">TestNG</span>
+                        <span class="skill-badge">JUnit</span>
+                        <span class="skill-badge">Pytest</span>
+                        <span class="skill-badge">Cucumber</span>
+                        <span class="skill-badge">Appium</span>
+                        <span class="skill-badge">Postman</span>
+                        <span class="skill-badge">Rest Assured</span>
+                        <span class="skill-badge">SOAPUI</span>
+                        <span class="skill-badge">JMeter</span>
+                        <span class="skill-badge">Allure Report</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">DevOps & CI/CD</h3>
+                    <div class="skills-grid">
+                        <span class="skill-badge">Azure DevOps</span>
+                        <span class="skill-badge">Jenkins</span>
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">GitHub</span>
+                        <span class="skill-badge">GitLab</span>
+                        <span class="skill-badge">Azure Repos</span>
+                        <span class="skill-badge">Jira</span>
+                        <span class="skill-badge">HP-ALM</span>
+                        <span class="skill-badge">Bugzilla</span>
+                        <span class="skill-badge">Power BI</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Methodologies</h3>
+                    <div class="skills-grid">
+                        <span class="skill-badge">Agile</span>
+                        <span class="skill-badge">SDLC</span>
+                        <span class="skill-badge">STLC</span>
+                        <span class="skill-badge">BDD</span>
+                        <span class="skill-badge">Page Object Model</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="skills-category-title">Certifications</h3>
+                    <div class="certifications-grid">
+                        <div class="certification-card glass-card hacker-hover">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                            <span>ISTQB® Foundation Level</span>
+                        </div>
+                        <div class="certification-card glass-card hacker-hover">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                            <span>Career Essentials in Generative AI</span>
+                        </div>
+                        <div class="certification-card glass-card hacker-hover">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                            <span>LambdaTest Software Testing Professional</span>
+                        </div>
+                        <div class="certification-card glass-card hacker-hover">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                            <span>LambdaTest Test Automation Professional</span>
+                        </div>
+                        <div class="certification-card glass-card hacker-hover">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                            <span>Agile Foundations</span>
+                        </div>
+                        <div class="certification-card glass-card hacker-hover">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                            <span>Scrum: The Basics</span>
+                        </div>
+                    </div>
+
+                    <!-- Code Sample -->
+                    <div class="skills-category">
+                        <h3 class="skills-category-title">Sample Code</h3>
+                        <div class="code-block" data-language="csharp">
+                            <span class="terminal-keyword">public class</span> <span class="terminal-function">QAEngineer</span> : <span class="terminal-function">IAutomationExpert</span><br>
+                            {<br>
+                            &nbsp;&nbsp;<span class="terminal-keyword">public</span> <span class="terminal-function">void</span> <span class="terminal-function">ExecuteTestSuite</span>()<br>
+                            &nbsp;&nbsp;{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-comment">// Initialize Selenium WebDriver</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-keyword">var</span> driver = <span class="terminal-keyword">new</span> <span class="terminal-function">ChromeDriver</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-comment">// Run automated tests</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-function">Assert</span>.<span class="terminal-function">True</span>(quality.<span class="terminal-function">IsOptimal</span>());<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title" data-scramble>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card glass-card hacker-hover">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Email</h3>
+                        <a href="mailto:alsaleh.osama.k@gmail.com" class="cmd-link">alsaleh.osama.k@gmail.com</a>
+                    </div>
+
+                    <div class="contact-card glass-card hacker-hover">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Phone</h3>
+                        <a href="tel:+12392098641" class="cmd-link">(239) 209-8641</a>
+                    </div>
+
+                    <div class="contact-card glass-card hacker-hover">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3>Location</h3>
+                        <p class="contact-text" style="font-family: 'Fira Code', monospace;">Fort Myers, FL, USA</p>
+                    </div>
+                </div>
+
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/osama-alsaleh" target="_blank" rel="noopener noreferrer"
+                        class="contact-btn glass-card hacker-hover">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                    <a href="https://github.com/samsal81" target="_blank" rel="noopener noreferrer"
+                        class="contact-btn glass-card hacker-hover">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                        <span>GitHub Portfolio</span>
+                    </a>
+                    <a href="https://sites.google.com/view/osamaalsalehprofile/home" target="_blank"
+                        rel="noopener noreferrer" class="contact-btn glass-card hacker-hover">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                        <span>Personal Website</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p style="font-family: 'Fira Code', monospace;">&copy; 2026 Osamah Al-Saleh | <span style="color: var(--color-success);">●</span> System Online</p>
+            <p class="footer-subtitle">Built with <span class="neon-text">&lt;/code&gt;</span> and passion for quality</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
