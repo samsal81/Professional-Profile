@@ -1118,11 +1118,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.02) 50%,
-        transparent 50%
-    );
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.02) 50%,
+            transparent 50%);
     background-size: 100% 4px;
     pointer-events: none;
     z-index: 9999;
@@ -1130,8 +1128,13 @@ body {
 }
 
 @keyframes scanline {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(4px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
 }
 
 /* Glitch Effect for Hero Name */
@@ -1162,19 +1165,61 @@ body {
 }
 
 @keyframes glitch-1 {
-    0%, 100% { clip-path: inset(0 0 95% 0); transform: translate(-2px, 0); }
-    20% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 0); }
-    40% { clip-path: inset(40% 0 40% 0); transform: translate(-2px, 0); }
-    60% { clip-path: inset(60% 0 20% 0); transform: translate(2px, 0); }
-    80% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 0); }
+
+    0%,
+    100% {
+        clip-path: inset(0 0 95% 0);
+        transform: translate(-2px, 0);
+    }
+
+    20% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(2px, 0);
+    }
+
+    40% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(-2px, 0);
+    }
+
+    60% {
+        clip-path: inset(60% 0 20% 0);
+        transform: translate(2px, 0);
+    }
+
+    80% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(-2px, 0);
+    }
 }
 
 @keyframes glitch-2 {
-    0%, 100% { clip-path: inset(95% 0 0 0); transform: translate(2px, 0); }
-    20% { clip-path: inset(60% 0 20% 0); transform: translate(-2px, 0); }
-    40% { clip-path: inset(40% 0 40% 0); transform: translate(2px, 0); }
-    60% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); }
-    80% { clip-path: inset(5% 0 80% 0); transform: translate(2px, 0); }
+
+    0%,
+    100% {
+        clip-path: inset(95% 0 0 0);
+        transform: translate(2px, 0);
+    }
+
+    20% {
+        clip-path: inset(60% 0 20% 0);
+        transform: translate(-2px, 0);
+    }
+
+    40% {
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(2px, 0);
+    }
+
+    60% {
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(-2px, 0);
+    }
+
+    80% {
+        clip-path: inset(5% 0 80% 0);
+        transform: translate(2px, 0);
+    }
 }
 
 /* Typing Cursor Effect */
@@ -1184,8 +1229,15 @@ body {
     color: var(--color-accent);
 }
 
+.typewrite>.wrap {
+    border-right: 0.1em solid var(--color-accent);
+    padding-right: 2px;
+}
+
 @keyframes blink {
-    50% { opacity: 0; }
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Terminal/Command Prompt Styling */
@@ -1212,9 +1264,17 @@ body {
     border-radius: 50%;
 }
 
-.terminal-button.red { background: #ff5f56; }
-.terminal-button.yellow { background: #ffbd2e; }
-.terminal-button.green { background: #27c93f; }
+.terminal-button.red {
+    background: #ff5f56;
+}
+
+.terminal-button.yellow {
+    background: #ffbd2e;
+}
+
+.terminal-button.green {
+    background: #27c93f;
+}
 
 .terminal-title {
     margin-left: auto;
@@ -1370,12 +1430,10 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(6, 182, 212, 0.2),
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(6, 182, 212, 0.2),
+            transparent);
     transition: left 0.5s;
 }
 
@@ -1395,11 +1453,25 @@ body {
 }
 
 @keyframes loading {
-    0% { content: ''; }
-    25% { content: '.'; }
-    50% { content: '..'; }
-    75% { content: '...'; }
-    100% { content: ''; }
+    0% {
+        content: '';
+    }
+
+    25% {
+        content: '.';
+    }
+
+    50% {
+        content: '..';
+    }
+
+    75% {
+        content: '...';
+    }
+
+    100% {
+        content: '';
+    }
 }
 
 /* Data Flow Animation */
@@ -1419,8 +1491,13 @@ body {
 }
 
 @keyframes dataFlow {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* Command Line Style Links */
@@ -1461,11 +1538,11 @@ body {
     .terminal-window {
         font-size: var(--font-size-xs);
     }
-    
+
     .binary-decoration {
         display: none;
     }
-    
+
     .glitch::before,
     .glitch::after {
         display: none;

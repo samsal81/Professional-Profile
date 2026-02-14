@@ -107,6 +107,49 @@ skillProgressBars.forEach(bar => {
     skillBarsObserver.observe(bar);
 });
 
+// Scroll-triggered typing for paragraphs (handles HTML tags)
+const typingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            if (!el.classList.contains('typing-started')) {
+                el.classList.add('typing-started');
+                const fullHTML = el.innerHTML;
+                el.innerHTML = '';
+                el.style.visibility = 'visible';
+                typeHTML(el, fullHTML, 0, 15);
+            }
+        }
+    });
+}, { threshold: 0.2 });
+
+/**
+ * Enhanced typeHTML with callback support for sequential typing
+ */
+function typeHTML(element, html, index, speed, callback) {
+    if (index < html.length) {
+        if (html.charAt(index) === '<') {
+            const tagEnd = html.indexOf('>', index);
+            if (tagEnd !== -1) {
+                element.innerHTML = html.substring(0, tagEnd + 1);
+                setTimeout(() => typeHTML(element, html, tagEnd + 1, speed, callback), speed);
+                return;
+            }
+        }
+        element.innerHTML = html.substring(0, index + 1);
+        setTimeout(() => typeHTML(element, html, index + 1, speed, callback), speed);
+    } else if (callback) {
+        callback();
+    }
+}
+
+const scrollTypingElements = document.querySelectorAll('[data-type-on-scroll]');
+scrollTypingElements.forEach(el => {
+    el.style.visibility = 'hidden';
+    typingObserver.observe(el);
+});
+
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -189,20 +232,48 @@ timelineItems.forEach((item, index) => {
     item.style.animationDelay = `${index * 0.1}s`;
 });
 
-// Add typing effect to hero subtitle (optional enhancement)
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.textContent = '';
-
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
+// Text Typing Class
+class TypeWriter {
+    constructor(element, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = element;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
     }
 
-    type();
+    tick() {
+        let i = this.loopNum % this.toRotate.length;
+        let fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = `<span class="wrap">${this.txt}</span>`;
+
+        let that = this;
+        let delta = 100 - Math.random() * 50;
+
+        if (this.isDeleting) { delta /= 3; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
+
+        setTimeout(function () {
+            that.tick();
+        }, delta);
+    }
 }
 
 // Initialize on page load
@@ -213,10 +284,15 @@ window.addEventListener('load', () => {
     // Initial highlight
     highlightNavigation();
 
-    // Optional: Add typing effect to subtitle
-    // const subtitle = document.querySelector('.hero-subtitle');
-    // const subtitleText = subtitle.textContent;
-    // typeWriter(subtitle, subtitleText, 50);
+    // Initialize TypeWriter for hero subtitle
+    const elements = document.getElementsByClassName('typewrite');
+    for (let i = 0; i < elements.length; i++) {
+        const toRotate = elements[i].getAttribute('data-type');
+        const period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TypeWriter(elements[i], JSON.parse(toRotate), period);
+        }
+    }
 });
 
 // Performance optimization: Debounce scroll events
@@ -279,49 +355,49 @@ class MatrixRain {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.resize();
-        
+
         this.characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
         this.fontSize = 14;
         this.columns = this.canvas.width / this.fontSize;
         this.drops = [];
-        
+
         for (let i = 0; i < this.columns; i++) {
             this.drops[i] = Math.random() * -100;
         }
-        
+
         window.addEventListener('resize', () => this.resize());
         this.animate();
     }
-    
+
     resize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.columns = this.canvas.width / this.fontSize;
     }
-    
+
     animate() {
         this.ctx.fillStyle = 'rgba(15, 23, 42, 0.05)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-        
+
         this.ctx.fillStyle = '#0f0';
         this.ctx.font = this.fontSize + 'px monospace';
-        
+
         for (let i = 0; i < this.drops.length; i++) {
             const text = this.characters.charAt(Math.floor(Math.random() * this.characters.length));
             const x = i * this.fontSize;
             const y = this.drops[i] * this.fontSize;
-            
+
             // Gradient effect - brighter at the bottom
             const opacity = Math.min(1, this.drops[i] / 20);
             this.ctx.fillStyle = `rgba(6, 182, 212, ${opacity})`;
             this.ctx.fillText(text, x, y);
-            
+
             if (y > this.canvas.height && Math.random() > 0.975) {
                 this.drops[i] = 0;
             }
             this.drops[i]++;
         }
-        
+
         requestAnimationFrame(() => this.animate());
     }
 }
@@ -339,13 +415,13 @@ class TextScramble {
         this.chars = '!<>-_\\/[]{}—=+*^?#________';
         this.update = this.update.bind(this);
     }
-    
+
     setText(newText) {
         const oldText = this.el.innerText;
         const length = Math.max(oldText.length, newText.length);
         const promise = new Promise((resolve) => this.resolve = resolve);
         this.queue = [];
-        
+
         for (let i = 0; i < length; i++) {
             const from = oldText[i] || '';
             const to = newText[i] || '';
@@ -353,20 +429,20 @@ class TextScramble {
             const end = start + Math.floor(Math.random() * 40);
             this.queue.push({ from, to, start, end });
         }
-        
+
         cancelAnimationFrame(this.frameRequest);
         this.frame = 0;
         this.update();
         return promise;
     }
-    
+
     update() {
         let output = '';
         let complete = 0;
-        
+
         for (let i = 0, n = this.queue.length; i < n; i++) {
             let { from, to, start, end, char } = this.queue[i];
-            
+
             if (this.frame >= end) {
                 complete++;
                 output += to;
@@ -380,9 +456,9 @@ class TextScramble {
                 output += from;
             }
         }
-        
+
         this.el.innerHTML = output;
-        
+
         if (complete === this.queue.length) {
             this.resolve();
         } else {
@@ -390,7 +466,7 @@ class TextScramble {
             this.frame++;
         }
     }
-    
+
     randomChar() {
         return this.chars[Math.floor(Math.random() * this.chars.length)];
     }
@@ -401,14 +477,14 @@ document.querySelectorAll('[data-scramble]').forEach(el => {
     const fx = new TextScramble(el);
     let counter = 0;
     const originalText = el.innerText;
-    
+
     const next = () => {
         fx.setText(originalText).then(() => {
             setTimeout(next, 3000);
         });
         counter = (counter + 1);
     };
-    
+
     el.addEventListener('mouseenter', () => next());
 });
 
@@ -416,11 +492,11 @@ document.querySelectorAll('[data-scramble]').forEach(el => {
 function animateBinaryCounter(element, targetValue, duration = 2000) {
     const startTime = performance.now();
     const chars = '01';
-    
+
     function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         if (progress < 1) {
             // Show random binary during animation
             let binary = '';
@@ -433,7 +509,7 @@ function animateBinaryCounter(element, targetValue, duration = 2000) {
             element.textContent = targetValue;
         }
     }
-    
+
     requestAnimationFrame(update);
 }
 
@@ -446,7 +522,7 @@ const statObserver = new IntersectionObserver((entries) => {
                 numberEl.classList.add('animated');
                 const originalText = numberEl.textContent;
                 const numericValue = parseInt(originalText);
-                
+
                 if (!isNaN(numericValue)) {
                     animateBinaryCounter(numberEl, numericValue, 1500);
                 }
@@ -459,12 +535,36 @@ document.querySelectorAll('.stat-card').forEach(card => {
     statObserver.observe(card);
 });
 
-// Terminal Typing Effect for Contact Section
-function typeTerminalText(element, text, speed = 50) {
+// Terminal Sequential Typing
+async function typeTerminalSequence(terminal) {
+    const lines = terminal.querySelectorAll('.terminal-line');
+    for (let line of lines) {
+        const command = line.querySelector('.terminal-command');
+        const output = (line.classList.contains('terminal-output') || !command) ? line : null;
+
+        if (command && !command.classList.contains('typing-cursor') && command.textContent.trim() !== '_') {
+            const text = command.getAttribute('data-cmd') || command.textContent;
+            command.setAttribute('data-cmd', text);
+            command.textContent = '';
+            command.style.visibility = 'visible';
+            await new Promise(resolve => {
+                typeTerminalText(command, text, 40, resolve);
+            });
+            await new Promise(resolve => setTimeout(resolve, 300)); // Pause after command
+        } else if (output && output.textContent.trim() !== '') {
+            output.style.opacity = '0';
+            output.style.visibility = 'visible';
+            output.style.transition = 'opacity 0.5s ease-in';
+            output.style.opacity = '1';
+            await new Promise(resolve => setTimeout(resolve, 500)); // Pause after output
+        }
+    }
+}
+
+function typeTerminalText(element, text, speed, callback) {
     element.classList.add('typing-cursor');
     let i = 0;
-    element.textContent = '';
-    
+
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
@@ -472,36 +572,43 @@ function typeTerminalText(element, text, speed = 50) {
             setTimeout(type, speed);
         } else {
             element.classList.remove('typing-cursor');
+            if (callback) callback();
         }
     }
-    
+
     type();
 }
 
-// Apply typing effect to terminal elements
-document.querySelectorAll('.terminal-command').forEach(el => {
-    const originalText = el.textContent;
-    el.textContent = '';
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                typeTerminalText(el, originalText, 30);
-                observer.unobserve(el);
+// Observe terminal windows
+const terminalObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const terminal = entry.target;
+            if (!terminal.classList.contains('typing-started')) {
+                terminal.classList.add('typing-started');
+                typeTerminalSequence(terminal);
             }
-        });
+        }
     });
-    
-    observer.observe(el);
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.terminal-body').forEach(body => {
+    // Hide initial content
+    body.querySelectorAll('.terminal-command:not(.typing-cursor), .terminal-output, .terminal-line:not(:has(.terminal-command))').forEach(el => {
+        if (el.textContent.trim() !== '_' && el.textContent.trim() !== '$') {
+            el.style.visibility = 'hidden';
+        }
+    });
+    terminalObserver.observe(body);
 });
 
 // Add command line style to social links
 document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', function() {
+    link.addEventListener('mouseenter', function () {
         this.style.boxShadow = '0 0 20px rgba(6, 182, 212, 0.5)';
     });
-    
-    link.addEventListener('mouseleave', function() {
+
+    link.addEventListener('mouseleave', function () {
         this.style.boxShadow = '';
     });
 });
@@ -509,23 +616,23 @@ document.querySelectorAll('.social-link').forEach(link => {
 // Nav logo tech effect
 const navLogo = document.querySelector('.nav-logo');
 if (navLogo) {
-    navLogo.addEventListener('mouseenter', function() {
+    navLogo.addEventListener('mouseenter', function () {
         this.style.textShadow = '0 0 20px var(--color-accent), 0 0 40px var(--color-accent)';
     });
-    
-    navLogo.addEventListener('mouseleave', function() {
+
+    navLogo.addEventListener('mouseleave', function () {
         this.style.textShadow = '';
     });
 }
 
 // Glitch effect on scroll for section titles
 document.querySelectorAll('.section-title').forEach(title => {
-    title.addEventListener('mouseenter', function() {
+    title.addEventListener('mouseenter', function () {
         this.classList.add('glitch');
         this.setAttribute('data-text', this.textContent);
     });
-    
-    title.addEventListener('mouseleave', function() {
+
+    title.addEventListener('mouseleave', function () {
         this.classList.remove('glitch');
     });
 });
@@ -533,14 +640,14 @@ document.querySelectorAll('.section-title').forEach(title => {
 // Skill badges - add binary prefix on hover
 document.querySelectorAll('.skill-badge').forEach(badge => {
     const originalText = badge.textContent;
-    
-    badge.addEventListener('mouseenter', function() {
+
+    badge.addEventListener('mouseenter', function () {
         const hexCode = Math.floor(Math.random() * 16777215).toString(16).toUpperCase().padStart(6, '0');
         this.textContent = `0x${hexCode}`;
         this.style.fontFamily = "'Fira Code', monospace";
     });
-    
-    badge.addEventListener('mouseleave', function() {
+
+    badge.addEventListener('mouseleave', function () {
         this.textContent = originalText;
         this.style.fontFamily = '';
     });
@@ -563,7 +670,7 @@ document.addEventListener('keydown', (e) => {
 console.log('%c> System initialized...', 'color: #00ff00; font-family: monospace;');
 console.log('%c> Type help() for available commands', 'color: #6272a4; font-family: monospace;');
 
-window.help = function() {
+window.help = function () {
     console.log('%cAvailable Commands:', 'color: #ff79c6; font-weight: bold;');
     console.log('%c  about()       - Display profile information', 'color: #8be9fd;');
     console.log('%c  skills()      - List technical skills', 'color: #8be9fd;');
@@ -571,26 +678,26 @@ window.help = function() {
     console.log('%c  matrix()      - Toggle matrix rain intensity', 'color: #8be9fd;');
 };
 
-window.about = function() {
+window.about = function () {
     console.log('%c> Osamah Al-Saleh - Lead QA Automation Engineer', 'color: #00ff00;');
     console.log('%c> 10+ years experience in test automation', 'color: #f1fa8c;');
     console.log('%c> Expertise: Selenium, C#, Java, Azure DevOps', 'color: #f1fa8c;');
 };
 
-window.skills = function() {
+window.skills = function () {
     console.log('%c> Technical Skills:', 'color: #ff79c6;');
     const skills = ['C# .NET', 'Selenium WebDriver', 'Java', 'Azure DevOps', 'CI/CD', 'API Testing'];
     skills.forEach(skill => console.log(`%c  [✓] ${skill}`, 'color: #50fa7b;'));
 };
 
-window.contact = function() {
+window.contact = function () {
     console.log('%c> Contact Information:', 'color: #ff79c6;');
     console.log('%c  Email: alsaleh.osama.k@gmail.com', 'color: #8be9fd;');
     console.log('%c  LinkedIn: linkedin.com/in/osama-alsaleh', 'color: #8be9fd;');
     console.log('%c  GitHub: github.com/samsal81', 'color: #8be9fd;');
 };
 
-window.matrix = function() {
+window.matrix = function () {
     console.log('%c> Matrix rain intensity adjusted', 'color: #00ff00;');
     const canvas = document.getElementById('matrix-canvas');
     if (canvas) {
